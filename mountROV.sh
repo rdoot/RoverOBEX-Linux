@@ -16,3 +16,10 @@ mkdir -p $MNTPOINT
 echo "Trying to get key from bluetooth phone..." >&2
 
 timeout 2 obexfs -b $MAC -B $CHANNEL $MNTPOINT >/dev/null 2>&1
+
+if [ -f $FILE ]; then
+  echo "found"
+else 
+  echo "Mounting failed: Check your bluetooth."
+  echo "Also check the script's MAC setting."
+fi
